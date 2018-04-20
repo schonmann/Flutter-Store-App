@@ -1,3 +1,3 @@
 class Constants {
-  static final String AppTitle = "My Mock Store!";
+  static final String AppTitle = "My Flutter Store!";
 }

@@ -7,7 +7,7 @@ void main() => runApp(new App());
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var title = "Xuma Store!";
+    var title = "My Flutter Store!";
     return new MaterialApp(
       title: title,
       home: new HomePage(title: "Home"),
