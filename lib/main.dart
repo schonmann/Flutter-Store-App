@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_store/screen/home.dart';
+import 'package:my_store/screen/home/home.dart';
 import 'package:my_store/theme.dart' as Theme;
 
 void main() => runApp(new App());
