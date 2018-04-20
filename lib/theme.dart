@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 final ThemeData AppTheme = new ThemeData(
-  primarySwatch: Colors.teal,
+  primarySwatch: Colors.red,
 );
 
 class AppColors {
 
   AppColors._();
 
-  static const Map<int, Color> green = const <int, Color> {
+  static const Map<int, Color> pink = const <int, Color> {
     50: const Color(0x0ffE4F4F0),
     100: const Color(0x0ffBBE3D8),
     200: const Color(0x0ff8DD0BF),
@@ -21,7 +21,7 @@ class AppColors {
     900: const Color(0x0ff08744E)
   };
 
-  static const Map<int, Color> pink = const <int, Color> {
+  static const Map<int, Color> green = const <int, Color> {
     50: const Color(0x0ffFCF3F3),
     100: const Color(0x0ffF9E0E0),
     200: const Color(0x0ffF5CCCC),

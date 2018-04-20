@@ -16,10 +16,19 @@ class ProductCategory {
   String setName(String name) => this._name = name;
 }
 
-enum CategoryEnum {
-  HOUSE,
-  NOTEBOOKS,
-  MOBILE_PHONES,
-  DESKTOPS,
-  MISC,
+class CategoryEnum {
+  final _value;
+
+  const CategoryEnum._internal(this._value);
+
+  static const CategoryEnum HOUSE = const CategoryEnum._internal("House");
+  static const CategoryEnum NOTEBOOKS = const CategoryEnum._internal("Notebooks");
+  static const CategoryEnum MOBILE_PHONES = const CategoryEnum._internal("Mobile Phones");
+  static const CategoryEnum DESKTOPS = const CategoryEnum._internal("Desktops");
+  static const CategoryEnum MISC = const CategoryEnum._internal("Misc");
+
+  String toString() {
+    return this._value;
+  }
 }
+

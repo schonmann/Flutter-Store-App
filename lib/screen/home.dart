@@ -13,11 +13,25 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   List<ProductCategory> _getProductCategories() {
+
+    var productCategoryTypes = <CategoryEnum>[
+      CategoryEnum.MOBILE_PHONES,
+      CategoryEnum.DESKTOPS,
+      CategoryEnum.HOUSE,
+      CategoryEnum.MISC,
+      CategoryEnum.NOTEBOOKS,
+    ];
+
     var categories = <ProductCategory>[];
-    for (var i = 0; i < 4; i++) {
-      categories.add(new ProductCategory(CategoryEnum.MOBILE_PHONES,
-          "Mobile Phone!", "https://picsum.photos/200?blur"));
-    }
+
+    productCategoryTypes.asMap().forEach((i,val) {
+      var w = (200 + i);
+      categories.add(new ProductCategory(
+        val, val.toString(),
+        "https://picsum.photos/" + (2*w).toString() + "/" + w.toString() + "?blur",
+      ));
+    });
+
     return categories;
   }
 
@@ -29,12 +43,12 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: new _AppDrawer(),
       body: new GridView.count(
-        crossAxisCount: 2,
-        childAspectRatio: 1.0,
-        padding: const EdgeInsets.all(8.0),
-        mainAxisSpacing: 8.0,
-        crossAxisSpacing: 8.0,
-        children: _getProductCategories().map((x) {
+        crossAxisCount: 1,
+        childAspectRatio: 2.0,
+        padding: EdgeInsets.zero,
+        mainAxisSpacing: 0.0,
+        crossAxisSpacing: 0.0,
+        children: _getProductCategories().map((c) {
           return new Stack(
             children: <Widget>[
               new Positioned.fill(
@@ -47,18 +61,16 @@ class _HomePageState extends State<HomePage> {
               ),
               new Positioned.fill(
                 child: new GridTile(
-                  child: new Card(
-                    child: new Stack(
-                      children: <Widget>[
-                        new Image.network(x.getPictureUrl()),
-                        new Center(
-                          child: new Text(
-                            x.getName(),
-                            style: Theme.of(context).accentTextTheme.subhead,
-                          ),
+                  child: new Stack(
+                    children: <Widget>[
+                      new Image.network(c.getPictureUrl()),
+                      new Center(
+                        child: new Text(
+                          c.getName(),
+                          style: Theme.of(context).accentTextTheme.subhead,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -68,8 +80,8 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: new FloatingActionButton(
         onPressed: () {},
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
+        tooltip: 'Search',
+        child: new Icon(Icons.search),
       ),
     );
   }
