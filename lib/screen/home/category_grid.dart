@@ -4,7 +4,7 @@ import 'package:my_store/model/product_category.dart';
 
 class AppCategoryGrid extends StatelessWidget {
 
-  List<ProductCategory> _getProductCategories() {
+  List<ProductCategory> _getProductCategories(context) {
 
     var productCategoryTypes = <CategoryEnum>[
       CategoryEnum.MOBILE_PHONES,
@@ -17,7 +17,9 @@ class AppCategoryGrid extends StatelessWidget {
     var categories = <ProductCategory>[];
 
     productCategoryTypes.asMap().forEach((i,val) {
-      var w = (200 + i);
+
+      var baseWidth = MediaQuery.of(context).size.width;
+      var w = (baseWidth + i);
       categories.add(new ProductCategory(
         val, val.toString(),
         "https://picsum.photos/" + (2*w).toString() + "/" + w.toString() + "?blur",
@@ -34,7 +36,8 @@ class AppCategoryGrid extends StatelessWidget {
       padding: EdgeInsets.zero,
       mainAxisSpacing: 0.0,
       crossAxisSpacing: 0.0,
-      children: _getProductCategories().map((c) {
+      children: _getProductCategories(context).map((c) {
+
         return new Stack(
           children: <Widget>[
             new Positioned.fill(
