@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_store/screen/about/about.dart';
 import 'package:my_store/screen/profile/profile.dart';
+import 'package:my_store/screen/recommendations/recommendations.dart';
 import 'package:my_store/screen/shop/shop.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -98,7 +100,12 @@ class AppDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.subhead,
             ),
             subtitle: new Text("Products you may like!"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(new MaterialPageRoute(
+                builder: (BuildContext context) => new RecommendationsPage(),
+              ));
+            },
           ),
           ListTile(
             leading: new Icon(Icons.help),
@@ -107,7 +114,12 @@ class AppDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.subhead,
             ),
             subtitle: new Text("We may aid you :)"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(new MaterialPageRoute(
+                builder: (BuildContext context) => new HelpPage(),
+              ));
+            },
           ),
         ],
       ),

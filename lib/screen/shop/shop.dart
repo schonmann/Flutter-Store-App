@@ -14,6 +14,15 @@ class _ShopPageState extends State<ShopPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Center();
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(widget.title),
+      ),
+      body: new Center(
+        child: new Text(
+            widget.title + " page works!"
+        ),
+      ),
+    );
   }
 }
