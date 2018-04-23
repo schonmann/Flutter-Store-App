@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_store/screen/profile/profile.dart';
+import 'package:my_store/screen/shop/shop.dart';
 
 class AppDrawer extends StatelessWidget {
 
@@ -45,9 +47,6 @@ class AppDrawer extends StatelessWidget {
                       ),
                     ],
                   ),
-                  new Row(
-                    children: <Widget>[],
-                  ),
                 ],
               ),
             ),
@@ -62,7 +61,12 @@ class AppDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.subhead,
             ),
             subtitle: new Text("Find group buying deals you may like!"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(new MaterialPageRoute(
+                builder: (BuildContext context) => new ShopPage(),
+              ));
+            },
           ),
           ListTile(
             leading: new Icon(Icons.info),
@@ -71,7 +75,12 @@ class AppDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.subhead,
             ),
             subtitle: new Text("Billing info, general settings and more."),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(new MaterialPageRoute(
+                builder: (BuildContext context) => new ProfilePage(),
+              ));
+            },
           ),
           ListTile(
             leading: new Icon(Icons.shopping_cart),

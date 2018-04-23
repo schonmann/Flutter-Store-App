@@ -3,9 +3,9 @@ import 'package:my_store/screen/home/category_grid.dart';
 import 'package:my_store/screen/home/drawer.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
+  HomePage({Key key}) : super(key: key);
 
-  final String title;
+  final String title = "Home";
 
   @override
   _HomePageState createState() => new _HomePageState();

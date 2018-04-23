@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 final ThemeData AppTheme = new ThemeData(
-  primarySwatch: Colors.red,
+  primarySwatch: Colors.deepPurple,
 );
 
 class AppColors {
@@ -18,7 +18,7 @@ class AppColors {
     600: const Color(0x0ff189976),
     700: const Color(0x0ff148F6B),
     800: const Color(0x0ff108561),
-    900: const Color(0x0ff08744E)
+    900: const Color(0x0ff08744E)/**/
   };
 
   static const Map<int, Color> green = const <int, Color> {
