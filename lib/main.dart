@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_store/screen/home/home.dart';
-import 'package:my_store/screen/profile/profile.dart';
-import 'package:my_store/screen/shop/shop.dart';
 import 'package:my_store/theme.dart' as Theme;
 
 void main() => runApp(new App());
