@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final ThemeData AppTheme = new ThemeData(
+final ThemeData appTheme = new ThemeData(
   primarySwatch: Colors.deepPurple,
 );
 
