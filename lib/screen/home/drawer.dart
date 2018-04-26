@@ -131,7 +131,7 @@ class _AppDrawerState extends State<AppDrawer> {
 
     return new Drawer(
       child: new ListView(
-        children: new List<Widget>.from([_drawerHeader])..addAll(_drawerListItems),
+        children: [_drawerHeader]..addAll(_drawerListItems),
       ),
     );
   }
