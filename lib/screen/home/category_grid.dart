@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_store/model/product_category.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class AppCategoryGrid extends StatelessWidget {
-
   List<ProductCategory> _getProductCategories(context) {
-
     var productCategoryTypes = <CategoryEnum>[
       CategoryEnum.MOBILE_PHONES,
       CategoryEnum.DESKTOPS,
@@ -16,13 +15,16 @@ class AppCategoryGrid extends StatelessWidget {
 
     var categories = <ProductCategory>[];
 
-    productCategoryTypes.asMap().forEach((i,val) {
-
+    productCategoryTypes.asMap().forEach((i, val) {
       var baseWidth = MediaQuery.of(context).size.width;
       var w = (baseWidth + i);
       categories.add(new ProductCategory(
-        val, val.toString(),
-        "https://picsum.photos/" + (2*w).toString() + "/" + w.toString() + "?blur",
+        val,
+        val.toString(),
+        "https://picsum.photos/" +
+            (2 * w).toString() +
+            "/" +
+            w.toString()
       ));
     });
     return categories;
@@ -37,7 +39,6 @@ class AppCategoryGrid extends StatelessWidget {
       mainAxisSpacing: 0.0,
       crossAxisSpacing: 0.0,
       children: _getProductCategories(context).map((c) {
-
         return new Stack(
           children: <Widget>[
             new Positioned.fill(
@@ -52,11 +53,13 @@ class AppCategoryGrid extends StatelessWidget {
               child: new GridTile(
                 child: new Stack(
                   children: <Widget>[
-                    new Image.network(c.getPictureUrl()),
                     new Center(
-                      child: new Text(
-                        c.getName(),
-                        style: Theme.of(context).accentTextTheme.subhead,
+                      child: new CircularProgressIndicator(),
+                    ),
+                    new Center(
+                      child: new FadeInImage.memoryNetwork(
+                        placeholder: kTransparentImage,
+                        image: c.getPictureUrl(),
                       ),
                     ),
                   ],

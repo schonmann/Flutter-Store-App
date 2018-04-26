@@ -6,6 +6,7 @@ import 'package:my_store/screen/profile/profile.dart';
 import 'package:my_store/screen/recommendations/recommendations.dart';
 import 'package:my_store/screen/shop/shop.dart';
 import 'package:my_store/session/session_manager.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class AppDrawer extends StatefulWidget {
   AppDrawer({Key key}) : super(key: key);
@@ -43,9 +44,21 @@ class _AppDrawerState extends State<AppDrawer> {
       ),
       currentAccountPicture: new Hero(
         tag: "profile-pic",
-        child: new CircleAvatar(
-          backgroundImage: new NetworkImage(_user.profilePictureUrl),
-          maxRadius: 45.0,
+        child: new Stack(
+          children: <Widget>[
+            new Center(
+              child: new CircularProgressIndicator(),
+            ),
+            new Center(
+              child: new CircleAvatar(
+                child: new FadeInImage.memoryNetwork(
+                  placeholder: kTransparentImage,
+                  image: _user.profilePictureUrl,
+                ),
+                radius: 45.0,
+              ),
+            ),
+          ],
         ),
       ),
       decoration: new BoxDecoration(
