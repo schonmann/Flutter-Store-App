@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_store/model/user.dart';
+import 'package:my_store/session/session_manager.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key key}) : super(key: key);
@@ -11,6 +13,9 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+
+  User _user = new SessionManager().getCurrentUser();
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -28,13 +33,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 tag: "profile-pic",
                 child: new CircleAvatar(
                   backgroundImage: new NetworkImage(
-                    "https://static1.squarespace"
-                        ".com/static/528252b7e4b0"
-                        "0150d03a4848/59a2354eebbd"
-                        "1a0623e0cefe/59a2359f6a49"
-                        "631dd5192339/150380278967"
-                        "4/RickAndMorty_RickHappy1"
-                        "500.png?format=300w",
+                    _user.profilePictureUrl,
                   ),
                   maxRadius: 70.0,
                 ),

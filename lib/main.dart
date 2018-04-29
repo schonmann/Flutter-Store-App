@@ -11,7 +11,7 @@ class App extends StatelessWidget {
     return new MaterialApp(
       title: title,
       home: new HomePage(),
-      theme: Theme.AppTheme,
+      theme: Theme.appTheme,
     );
   }
 }

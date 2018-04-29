@@ -1,6 +1,6 @@
 class ProductCategory {
 
-  ProductCategory(this._id, this._name, this._pictureUrl) { }
+  ProductCategory(this._id, this._name, this._pictureUrl);
 
   CategoryEnum _id;
   String _name;
