@@ -41,11 +41,8 @@ class AppCategoryGrid extends StatelessWidget {
         return new Stack(
           children: <Widget>[
             new Positioned.fill(
-              child: new Material(
-                color: Colors.transparent,
-                child: new InkWell(
-                  splashColor: Colors.lightBlueAccent,
-                ),
+              child: new InkWell(
+                splashColor: Colors.lightBlueAccent,
               ),
             ),
             new Positioned.fill(
